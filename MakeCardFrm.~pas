@@ -28,6 +28,10 @@ type
     { Public declarations }
   end;
 
+const
+  KeyB: string = '222222222222';
+  KeyA: string = '111111111111';
+
 procedure MakeCard(IDCard, PatientID, PatientName, DataBaseName, PersonID: string);
 
 implementation
@@ -129,7 +133,7 @@ procedure TMakeCardForm.PatientIDWrite(PatientID: string);
 begin
   FindCard;
   //写卡
-  MakeResultlabel.Caption := WriteCard(1, patientID, '222222222222');
+  MakeResultlabel.Caption := WriteCard(1, patientID, KeyB);
 end;
 
 //写入病人姓名
@@ -138,7 +142,7 @@ begin
   //寻卡
   FindCard;
   //写卡
-  MakeResultLabel.Caption := WriteCard(2, Name, '222222222222');
+  MakeResultLabel.Caption := WriteCard(2, Name, KeyB);
 end;
 
 //写身份证
@@ -148,10 +152,10 @@ var
 begin
   FindCard;
   Temp1 := LeftStr(IDCard, 9);
-  WriteCard(4, Temp1, '222222222222');
+  WriteCard(4, Temp1, KeyB);
   FindCard;
   Temp2 := RightStr(IDCard, 9);
-  WriteCard(5, Temp2, '222222222222');
+  WriteCard(5, Temp2, KeyB);
 end;
 
 //TODO改写秘钥1.读卡,2.拆分密钥(保存配置区)3.分别改写A,B秘钥4.组合配置区然后存入秘钥块
@@ -159,7 +163,7 @@ procedure TMakeCardForm.InitCardKey();
 var
   MidStrTemp, KeyWords: string;
 begin
-  KeyWords := '111111111111FF078069222222222222';
+  KeyWords := KeyA + 'FF078069' + KeyB;
   FindCard;
   WriteKey(3, KeyWords, 'FFFFFFFFFFFF');
   FindCard;

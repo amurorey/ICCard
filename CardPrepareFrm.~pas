@@ -100,7 +100,7 @@ begin
   Beep(10);
   PatientBaseQuery.Close;
   PatientBaseQuery.ParamByName('CardNo').AsString := FindCard;
-  PatientBaseQuery.ParamByName('PatientID').AsString := ReadCard(1, '111111111111');
+  PatientBaseQuery.ParamByName('PatientID').AsString := ReadCard(1, KeyA);
   PatientBaseQuery.Open;
   Temp := '¶Á¿¨Ê§°Ü,´íÎó´úÂë' + FindCard;
 
