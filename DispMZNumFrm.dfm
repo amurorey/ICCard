@@ -1,0 +1,80 @@
+object DispMZNumForm: TDispMZNumForm
+  Left = 444
+  Top = 351
+  BorderStyle = bsDialog
+  Caption = #25552#31034#20449#24687
+  ClientHeight = 244
+  ClientWidth = 433
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object RzPanel1: TRzPanel
+    Left = 40
+    Top = 40
+    Width = 353
+    Height = 145
+    BorderOuter = fsFlatRounded
+    TabOrder = 0
+    object DispLabel: TRzLabel
+      Left = 8
+      Top = 32
+      Width = 337
+      Height = 17
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #24050#25346#21495#25104#21151#65292#24739#32773#30340#38376#35786#21495#20026#65306
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = #23435#20307
+      Font.Style = []
+      ParentFont = False
+      BlinkIntervalOff = 1000
+      BlinkIntervalOn = 1000
+      ShadowColor = clBtnHighlight
+      ShadowDepth = 1
+      TextStyle = tsShadow
+    end
+    object IDLabel: TRzLabel
+      Left = 5
+      Top = 64
+      Width = 340
+      Height = 57
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '12345678'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -48
+      Font.Name = 'Times New Roman'
+      Font.Style = [fsBold]
+      ParentFont = False
+      BlinkIntervalOff = 1000
+      BlinkIntervalOn = 1000
+      ShadowColor = clBlack
+      TextStyle = tsRaised
+    end
+  end
+  object OkBtn: TRzBitBtn
+    Left = 176
+    Top = 200
+    Caption = #30830#35748
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = #23435#20307
+    Font.Style = []
+    HotTrack = True
+    ParentFont = False
+    TabOrder = 1
+    OnClick = OkBtnClick
+    Kind = bkOK
+  end
+end
