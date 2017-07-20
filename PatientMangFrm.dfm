@@ -1,6 +1,6 @@
 object PatientMangForm: TPatientMangForm
-  Left = 21
-  Top = 0
+  Left = 0
+  Top = 2
   Width = 1382
   Height = 784
   BorderIcons = [biSystemMenu, biMaximize]

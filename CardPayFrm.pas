@@ -16,11 +16,12 @@ type
     RzBitBtn1: TRzBitBtn;
     RzBitBtn2: TRzBitBtn;
     TypeComboBox: TRzComboBox;
-    PatientIDLabel: TRzLabel;
+    CardNoLabel: TRzLabel;
     UpdateQuery: TQuery;
-    LogQuery: TQuery;
     MoneyEdit: TRzEdit;
     frxReport1: TfrxReport;
+    RzLabel4: TRzLabel;
+    NoteMemo: TRzMemo;
     procedure RzBitBtn2Click(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -29,19 +30,19 @@ type
   private
     { Private declarations }
     MoneyTemp: Double;
-    NameTemp: string;
+    NameTemp, PatientIDTemp: string;
   public
     { Public declarations }
   end;
 
-procedure CardPay(PatientID, DatabaseName, FName: string; Money: Double);
+procedure CardPay(PatientID, DatabaseName, FName, IDCard: string; Money: Double);
 
 function UpperMoney(small: real): string;
 
 implementation
 {$R *.dfm}
 
-procedure CardPay(PatientID, DatabaseName, FName: string; Money: Double);
+procedure CardPay(PatientID, DatabaseName, FName, IDCard: string; Money: Double);
 var
   CardPayForm: TCardPayForm;
 begin
@@ -49,9 +50,9 @@ begin
   with CardPayForm do
   begin
     try
-      LogQuery.DatabaseName := DatabaseName;
       UpdateQuery.DatabaseName := DatabaseName;
-      PatientIDLabel.Caption := PatientID;
+      CardNoLabel.Caption := IDCard;
+      PatientIDTemp := PatientID;
       MoneyTemp := Money;
       NameTemp := FName;
       ShowModal;
@@ -81,26 +82,27 @@ begin
     try
       UpdateQuery.Close;
       UpdateQuery.ParamByName('PrepayMoney').AsFloat := MoneyTemp + StrToFloat(MoneyEdit.Text);
-      UpdateQuery.ParamByName('PatientID').AsString := PatientIDLabel.Caption;
-      UpdateQuery.ParamByName('PatientID').AsString := PatientIDLabel.Caption;
-      UpdateQuery.ParamByName('Amount').AsFloat := MoneyTemp + StrToFloat(MoneyEdit.Text);
+      UpdateQuery.ParamByName('PatientID').AsString := PatientIDTemp;
+      UpdateQuery.ParamByName('PatientID').AsString := PatientIDTemp;
+      UpdateQuery.ParamByName('Amount').AsFloat := StrToFloat(MoneyEdit.Text);
       UpdateQuery.ParamByName('OperDate').AsDateTime := GetCurrentDate;
       UpdateQuery.ParamByName('OperName').AsString := OperName;
       UpdateQuery.ParamByName('PayWay').AsString := TypeComboBox.Text;
-      UpdateQuery.ParamByName('Note').AsString := MoneyEdit.Text;
+      UpdateQuery.ParamByName('Note').AsString := NoteMemo.Text;
       UpdateQuery.ParamByName('Flag').AsInteger := 0;
-      UpdateQuery.ParamByName('Kind').AsString := '存入预交金';
+      UpdateQuery.ParamByName('CardNo').AsString := CardNoLabel.Caption;
       UpdateQuery.ExecSQL;
       DataModule1.Database.Commit;
       //打印小票
       frxReport1.Variables['SJNum'] := '''' + '这里等导入全局函数' + '''';
-      frxReport1.Variables['CardNo'] := '''' + PatientIDLabel.Caption + '''';
+      frxReport1.Variables['CardNo'] := '''' + CardNoLabel.Caption + '''';
       frxReport1.Variables['Name'] := '''' + NameTemp + '''';
       frxReport1.Variables['PayType'] := '''' + TypeComboBox.Text + '''';
       frxReport1.Variables['XXMoney'] := '''' + MoneyEdit.Text + '''';
       frxReport1.Variables['DXMoney'] := '''' + UpperMoney(StrToFloat(MoneyEdit.Text)) + '''';
       frxReport1.Variables['Admin'] := '''' + OperName + '''';
       frxReport1.Variables['PayDate'] := '''' + DateToStr(GetCurrentDate) + '''';
+      frxReport1.Variables['UnitName'] := '''' + UnitName + '''';
       //frxReport1.Print;
       frxReport1.ShowReport;
       close;

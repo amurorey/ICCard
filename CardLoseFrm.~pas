@@ -188,6 +188,12 @@ begin
     Exit;
   end;
 
+  //界面赋值
+  ReadName.Caption := Name_;
+  ReadSex.Caption := Sex_;
+  ReadPersonIDLabel.Caption := PersonID_;
+  ReadBirthday.Caption := FormatDateTime('YYYY-MM-DD', Birth_);
+
   if CardCode = '' then
   begin
     //信息不匹配
@@ -195,12 +201,6 @@ begin
     InfoMemo.Lines.Add('…此患者无可挂失卡（之前的卡已经挂失，且未办理新卡）');
     Exit;
   end;
-
-  //界面赋值
-  ReadName.Caption := Name_;
-  ReadSex.Caption := Sex_;
-  ReadPersonIDLabel.Caption := PersonID_;
-  ReadBirthday.Caption := FormatDateTime('YYYY-MM-DD', Birth_);
 
   //去除所以空格
   PersonID_ := Trim(PersonID_);
@@ -253,6 +253,8 @@ begin
     InfoMemo.Lines.Add('-->提示：');
     InfoMemo.Lines.Add('…医疗卡：' + CardCode + ' 挂失成功');
   end;
+
+  CardCode:='';
 end;
 
 //卡挂失记录

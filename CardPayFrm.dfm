@@ -1,9 +1,9 @@
 object CardPayForm: TCardPayForm
-  Left = 430
-  Top = 187
+  Left = 449
+  Top = 179
   BorderStyle = bsDialog
   Caption = #20805#20540
-  ClientHeight = 321
+  ClientHeight = 438
   ClientWidth = 489
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
@@ -20,7 +20,7 @@ object CardPayForm: TCardPayForm
     Left = 26
     Top = 28
     Width = 433
-    Height = 265
+    Height = 389
     Caption = #20805#20540#36873#39033
     Font.Charset = GB2312_CHARSET
     Font.Color = clWindowText
@@ -34,7 +34,7 @@ object CardPayForm: TCardPayForm
       Top = 48
       Width = 80
       Height = 15
-      Caption = #20805#20540#36134#21495#65306
+      Caption = #20805#20540#21345#21495#65306
       BlinkIntervalOff = 1000
       BlinkIntervalOn = 1000
     end
@@ -56,12 +56,12 @@ object CardPayForm: TCardPayForm
       BlinkIntervalOff = 1000
       BlinkIntervalOn = 1000
     end
-    object PatientIDLabel: TRzLabel
+    object CardNoLabel: TRzLabel
       Left = 128
       Top = 48
-      Width = 126
+      Width = 99
       Height = 15
-      Caption = 'PatientIDLabel'
+      Caption = 'CardNoLabel'
       Font.Charset = GB2312_CHARSET
       Font.Color = clBlue
       Font.Height = -15
@@ -71,11 +71,22 @@ object CardPayForm: TCardPayForm
       BlinkIntervalOff = 1000
       BlinkIntervalOn = 1000
     end
+    object RzLabel4: TRzLabel
+      Left = 32
+      Top = 184
+      Width = 48
+      Height = 15
+      Caption = #22791#27880#65306
+      BlinkIntervalOff = 1000
+      BlinkIntervalOn = 1000
+    end
     object RzBitBtn1: TRzBitBtn
       Left = 92
-      Top = 200
+      Top = 320
       Width = 105
       Height = 41
+      Cursor = crDrag
+      Default = True
       Caption = #30830#35748#20805#20540
       HotTrack = True
       TabOrder = 0
@@ -135,7 +146,7 @@ object CardPayForm: TCardPayForm
     end
     object RzBitBtn2: TRzBitBtn
       Left = 236
-      Top = 200
+      Top = 320
       Width = 105
       Height = 41
       Cancel = True
@@ -231,6 +242,17 @@ object CardPayForm: TCardPayForm
       OnExit = MoneyEditExit
       OnKeyPress = MoneyEditKeyPress
     end
+    object NoteMemo: TRzMemo
+      Left = 128
+      Top = 184
+      Width = 265
+      Height = 113
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 4
+      OnKeyPress = MoneyEditKeyPress
+      FrameHotTrack = True
+      FrameVisible = True
+    end
   end
   object UpdateQuery: TQuery
     DatabaseName = 'CardData'
@@ -247,7 +269,7 @@ object CardPayForm: TCardPayForm
       '          Note,'
       '          PayWay,'
       '          Flag,'
-      '          Kind '
+      '          CardNo'
       '        )'
       'VALUES  ( :PatientID , '
       '               :Amount , '
@@ -255,12 +277,11 @@ object CardPayForm: TCardPayForm
       '               :OperName , '
       '               :Note,'
       '               :PayWay,'
-      '               :Flag, '
-      '               :Kind'
-      '        )'
-      '')
+      '               :Flag,'
+      '               :CardNo'
+      '        )')
     Left = 82
-    Top = 220
+    Top = 348
     ParamData = <
       item
         DataType = ftUnknown
@@ -309,73 +330,7 @@ object CardPayForm: TCardPayForm
       end
       item
         DataType = ftUnknown
-        Name = 'Kind'
-        ParamType = ptUnknown
-      end>
-  end
-  object LogQuery: TQuery
-    DatabaseName = 'CardData'
-    SQL.Strings = (
-      'INSERT INTO dbo.MZPrepay'
-      '        ( PatientID ,'
-      '          Amount ,'
-      '          OperDate ,'
-      '          OperName ,'
-      '          Note,'
-      '          PayWay,'
-      '          Flag,'
-      '          Kind '
-      '        )'
-      'VALUES  ( :PatientID , '
-      '               :Amount , '
-      '               :OperDate , '
-      '               :OperName , '
-      '               :Note,'
-      '               :PayWay,'
-      '               :Flag, '
-      '               :Kind'
-      '        )')
-    Left = 82
-    Top = 252
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'PatientID'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'Amount'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'OperDate'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'OperName'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'Note'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'PayWay'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'Flag'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'Kind'
+        Name = 'CardNo'
         ParamType = ptUnknown
       end>
   end
@@ -432,6 +387,10 @@ object CardPayForm: TCardPayForm
       end
       item
         Name = 'PayDate'
+        Value = ''
+      end
+      item
+        Name = 'UnitName'
         Value = ''
       end>
     Style = <>
@@ -607,7 +566,7 @@ object CardPayForm: TCardPayForm
         Font.Style = [fsBold]
         HAlign = haCenter
         Memo.UTF8 = (
-          'XXXXX'#21307#38498#19968#21345#36890#20805#20540#20973#35777)
+          '[UnitName]'#19968#21345#36890#20805#20540#20973#35777)
         ParentFont = False
         VAlign = vaCenter
       end

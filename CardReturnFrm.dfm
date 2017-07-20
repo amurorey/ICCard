@@ -1,9 +1,9 @@
 object CardReturnForm: TCardReturnForm
-  Left = 245
-  Top = 61
+  Left = 319
+  Top = 12
   BorderStyle = bsDialog
   Caption = #36864#39044#20132#37329
-  ClientHeight = 586
+  ClientHeight = 650
   ClientWidth = 744
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
@@ -387,9 +387,9 @@ object CardReturnForm: TCardReturnForm
   end
   object GroupBox2: TGroupBox
     Left = 16
-    Top = 416
+    Top = 400
     Width = 713
-    Height = 153
+    Height = 241
     Caption = #36864#39044#20132#37329
     Font.Charset = GB2312_CHARSET
     Font.Color = clWindowText
@@ -465,6 +465,15 @@ object CardReturnForm: TCardReturnForm
       BlinkIntervalOff = 1000
       BlinkIntervalOn = 1000
     end
+    object RzLabel17: TRzLabel
+      Left = 24
+      Top = 144
+      Width = 41
+      Height = 15
+      Caption = #22791#27880':'
+      BlinkIntervalOff = 1000
+      BlinkIntervalOn = 1000
+    end
     object StyleComboBox: TRzComboBox
       Left = 112
       Top = 68
@@ -488,13 +497,14 @@ object CardReturnForm: TCardReturnForm
     end
     object ConfirmBitBtn: TRzBitBtn
       Left = 528
-      Top = 34
+      Top = 110
       Width = 137
       Height = 29
+      Default = True
       Caption = #30830#35748#36864#36153
       Enabled = False
       HotTrack = True
-      TabOrder = 1
+      TabOrder = 3
       OnClick = ConfirmBitBtnClick
       Glyph.Data = {
         36060000424D3606000000000000360400002800000020000000100000000100
@@ -551,13 +561,13 @@ object CardReturnForm: TCardReturnForm
     end
     object RzBitBtn3: TRzBitBtn
       Left = 528
-      Top = 90
+      Top = 166
       Width = 137
       Height = 29
       Cancel = True
       Caption = #36864#20986
       HotTrack = True
-      TabOrder = 2
+      TabOrder = 4
       OnClick = RzBitBtn3Click
       Glyph.Data = {
         36060000424D3606000000000000360400002800000020000000100000000100
@@ -622,9 +632,20 @@ object CardReturnForm: TCardReturnForm
       FrameHotTrack = True
       FrameVisible = True
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
-      TabOrder = 3
+      TabOrder = 1
       OnExit = MoneyRzEditExit
       OnKeyPress = MoneyRzEditKeyPress
+    end
+    object NoteMemo: TRzMemo
+      Left = 112
+      Top = 152
+      Width = 345
+      Height = 73
+      Enabled = False
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 2
+      FrameHotTrack = True
+      FrameVisible = True
     end
   end
   object PatientBaseQuery: TQuery
@@ -694,7 +715,7 @@ object CardReturnForm: TCardReturnForm
       '          Note,'
       '          PayWay,'
       '          Flag,'
-      '          Kind '
+      '          CardNo '
       '        )'
       'VALUES  ( :PatientID , '
       '               :Amount , '
@@ -703,7 +724,7 @@ object CardReturnForm: TCardReturnForm
       '               :Note,'
       '               :PayWay, '
       '               :Flag,'
-      '               :Kind'
+      '               :CardNo'
       '        )'
       'SELECT 0 AS result'
       ' ')
@@ -767,7 +788,7 @@ object CardReturnForm: TCardReturnForm
       end
       item
         DataType = ftUnknown
-        Name = 'Kind'
+        Name = 'CardNo'
         ParamType = ptUnknown
       end>
   end
@@ -824,6 +845,10 @@ object CardReturnForm: TCardReturnForm
       end
       item
         Name = 'PayDate'
+        Value = ''
+      end
+      item
+        Name = 'UnitName'
         Value = ''
       end>
     Style = <>
@@ -999,7 +1024,7 @@ object CardReturnForm: TCardReturnForm
         Font.Style = [fsBold]
         HAlign = haCenter
         Memo.UTF8 = (
-          'XXXXX'#21307#38498#19968#21345#36890#36864#27454#20973#35777)
+          '[UnitName]'#19968#21345#36890#36864#27454#20973#35777)
         ParentFont = False
         VAlign = vaCenter
       end

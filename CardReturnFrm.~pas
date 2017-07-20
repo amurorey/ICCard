@@ -51,6 +51,8 @@ type
     PhoneID: TRzLabel;
     SexID: TRzLabel;
     frxReport1: TfrxReport;
+    RzLabel17: TRzLabel;
+    NoteMemo: TRzMemo;
     procedure MoneyRzEditKeyPress(Sender: TObject; var Key: Char);
     procedure MoneyRzEditExit(Sender: TObject);
     procedure RzBitBtn3Click(Sender: TObject);
@@ -155,6 +157,7 @@ begin
       MoneyLabel.Caption := PatientBaseQuery.FieldByname('PrepayMoney').AsString;
       MoneyRzEdit.SetFocus;
       MoneyRzEdit.SelectAll;
+      NoteMemo.Enabled := True;
     end
     else
     begin
@@ -195,13 +198,13 @@ begin
       ReturnQuery.ParamByName('PrepayMoney').AsFloat := PatientBaseQuery.FieldByname('PrepayMoney').AsFloat - StrToFloat(MoneyRzEdit.Text);
       ReturnQuery.ParamByName('PatientID').AsString := PatientIDTemp;
       ReturnQuery.ParamByName('PatientID').AsString := PatientIDTemp;
-      ReturnQuery.ParamByName('Amount').AsFloat := PatientBaseQuery.FieldByname('PrepayMoney').AsFloat - StrToFloat(MoneyRzEdit.Text);
+      ReturnQuery.ParamByName('Amount').AsFloat := -StrToFloat(MoneyRzEdit.Text);
       ReturnQuery.ParamByName('OperDate').AsDateTime := GetCurrentDate;
       ReturnQuery.ParamByName('OperName').AsString := OperName;
       ReturnQuery.ParamByName('PayWay').AsString := StyleComboBox.Text;
-      ReturnQuery.ParamByName('Note').AsString := '-' + FloatToStr(StrToFloat(MoneyRzEdit.Text));
+      ReturnQuery.ParamByName('Note').AsString := NoteMemo.Text;
       ReturnQuery.ParamByName('Flag').AsInteger := 1;
-      ReturnQuery.ParamByName('Kind').AsString := '退出预交金';
+      ReturnQuery.ParamByName('CardNo').AsString := PatientRzLabel.Caption;
       ReturnQuery.Open;
 
       if ReturnQuery.FieldByName('result').AsInteger = 1 then
@@ -214,13 +217,14 @@ begin
         Application.MessageBox('退款成功！', '退款成功！', MB_OK + MB_ICONINFORMATION);
         //打印小票
         frxReport1.Variables['SJNum'] := '''' + '这里等导入全局函数' + '''';
-        frxReport1.Variables['CardNo'] := '''' + PatientIDTemp + '''';
+        frxReport1.Variables['CardNo'] := '''' + PatientRzLabel.Caption + '''';
         frxReport1.Variables['Name'] := '''' + PatientName.Caption + '''';
         frxReport1.Variables['PayType'] := '''' + StyleComboBox.Text + '''';
         frxReport1.Variables['XXMoney'] := '''' + MoneyRzEdit.Text + '''';
         frxReport1.Variables['DXMoney'] := '''' + UpperMoney(StrToFloat(MoneyRzEdit.Text)) + '''';
         frxReport1.Variables['Admin'] := '''' + OperName + '''';
         frxReport1.Variables['PayDate'] := '''' + DateToStr(GetCurrentDate) + '''';
+        frxReport1.Variables['UnitName'] := '''' + UnitName + '''';
         //frxReport1.Print;
         frxReport1.ShowReport;
         close;

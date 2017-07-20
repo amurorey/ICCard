@@ -157,7 +157,7 @@ end;
 //充值页面
 procedure TCardPrepareForm.PayBtnClick(Sender: TObject);
 begin
-  CardPay(PatientID, DatabaseNameTemp, PatientNameLabel.Caption, MoneyTemp);
+  CardPay(PatientID, DatabaseNameTemp, PatientNameLabel.Caption, ZLIDCardLabel.Caption, MoneyTemp);
   Refresh(Sender);
 end;
 
@@ -199,7 +199,7 @@ begin
   //设置列宽
   for ColIndex := 0 to MoneyGrid.ColCount - 1 do
   begin
-    MoneyGrid.ColWidths[ColIndex] := MoneyGrid.Width div MoneyGrid.ColCount;
+    MoneyGrid.ColWidths[ColIndex] := (MoneyGrid.Width - 8) div MoneyGrid.ColCount;
   end;
 end;
 
@@ -242,7 +242,7 @@ begin
     end
     else if ACol = 6 then
     begin
-      DrawText(Canvas.Handle, PChar(s), Length(s), r, DT_CENTER or DT_SINGLELINE or DT_CENTER);
+      DrawText(Canvas.Handle, PChar(s), Length(s), r, DT_RIGHT or DT_SINGLELINE or DT_RIGHT);
     end;
   end;
 end;
@@ -250,8 +250,10 @@ end;
 procedure TCardPrepareForm.InsertGridData(Sender: TObject);
 var
   RowIndex, ColIndex: Integer;
+  MoneyTemp: Double;
 begin
   //设置行数
+  MoneyTemp := 0;
   MoneyGrid.RowCount := LogQuery.RecordCount + 1;
   while not LogQuery.eof do
   begin
@@ -259,22 +261,23 @@ begin
     begin
       //写入时间
       MoneyGrid.Cells[0, RowIndex] := FormatDateTime('YYYY-MM-DD', LogQuery.FieldByName('OperDate').asDatetime);
-      //写入摘要
-      MoneyGrid.Cells[1, RowIndex] := LogQuery.FieldByName('Kind').AsString;
       //写入借贷方
       if LogQuery.FieldByName('Flag').AsInteger = 0 then
       begin
-        MoneyGrid.Cells[2, RowIndex] := LogQuery.FieldByName('Note').AsString;
+        MoneyGrid.Cells[1, RowIndex] := '存入预交金';
+        MoneyGrid.Cells[2, RowIndex] := FormatFloat('0.00', LogQuery.FieldByName('Amount').AsFloat);
         MoneyGrid.Cells[4, RowIndex] := '借';
       end
       else
       begin
-        MoneyGrid.Cells[3, RowIndex] := LogQuery.FieldByName('Note').AsString;
+        MoneyGrid.Cells[1, RowIndex] := '退出余额';
+        MoneyGrid.Cells[3, RowIndex] := FormatFloat('0.00', LogQuery.FieldByName('Amount').AsFloat);
         MoneyGrid.Cells[4, RowIndex] := '贷';
       end;
       MoneyGrid.Cells[5, RowIndex] := LogQuery.FieldByName('PayWay').AsString;
       //写入余额
-      MoneyGrid.Cells[6, RowIndex] := LogQuery.FieldByName('Amount').AsString;
+      MoneyGrid.Cells[6, RowIndex] := FormatFloat('0.00', (MoneyTemp + LogQuery.FieldByName('Amount').AsFloat));
+      MoneyTemp := MoneyTemp + LogQuery.FieldByName('Amount').AsFloat;
       LogQuery.Next;
     end;
   end;

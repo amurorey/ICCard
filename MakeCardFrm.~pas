@@ -27,7 +27,7 @@ type
   public
     { Public declarations }
   end;
-
+//TODO密钥暂时放在这里
 const
   KeyB: string = '222222222222';
   KeyA: string = '111111111111';
