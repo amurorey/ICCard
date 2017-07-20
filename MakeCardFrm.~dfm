@@ -27,7 +27,7 @@ object MakeCardForm: TMakeCardForm
     Font.Name = #23435#20307
     Font.Style = []
     ParentFont = False
-    BlinkIntervalOff = 1000
+    BlinkIntervalOff = 300
     BlinkIntervalOn = 1000
   end
   object MakeResultLabel: TRzLabel
@@ -42,7 +42,7 @@ object MakeCardForm: TMakeCardForm
     Font.Name = #23435#20307
     Font.Style = []
     ParentFont = False
-    BlinkIntervalOff = 1000
+    BlinkIntervalOff = 300
     BlinkIntervalOn = 1000
   end
   object Image1: TImage

@@ -221,13 +221,9 @@ object CardPayForm: TCardPayForm
       ItemHeight = 15
       ParentCtl3D = False
       TabOrder = 2
-      Text = #29616#37329
       Items.Strings = (
         #29616#37329
-        #38134#34892#21345
-        #25903#20184#23453
-        #24494#20449#36716#36134)
-      ItemIndex = 0
+        #38134#34892#21345)
     end
     object MoneyEdit: TRzEdit
       Left = 128

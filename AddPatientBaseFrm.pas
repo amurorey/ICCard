@@ -9,7 +9,7 @@ uses
   ppPrnabl, ppClass, ppBarCod, ppBands, ppCache, ppComm, ppRelatv, ppProd,
   ppReport, PrintBarCodeFrm, RzCmboBx, CheckPatientBaseFrm, ImgList,
   ReadPersonIDFrm, RzBckgnd, RzBtnEdt, SearchPatientBaseFrm, Jpeg, declaredll,
-  MakeCardFrm;
+  MakeCardFrm, CardPrepareFrm;
 
 type
   TAddPatientBaseForm = class(TForm)
@@ -822,7 +822,14 @@ end;
 procedure TAddPatientBaseForm.MakCardBtnClick(Sender: TObject);
 begin
   //1.身份证号码2.病人ID3.姓名
-  MakeCard(PersonIDEdit.Text, PatientIDLabel.Caption, PatientNameEdit.Text, DatabaseNameTemp, PersonIDEdit.Text);
+  if MakeCard(PersonIDEdit.Text, PatientIDLabel.Caption, PatientNameEdit.Text, DatabaseNameTemp, PersonIDEdit.Text) then
+  begin
+    if Application.MessageBox('制卡成功,是否继续充值', '提示', MB_YESNO + MB_ICONQUESTION) = 6 then
+    begin
+      CardPrepare(DatabaseNameTemp);
+    end;
+  end;
+
 end;
 
  //开启制卡功能

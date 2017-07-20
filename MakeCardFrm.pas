@@ -22,23 +22,24 @@ type
     procedure RzBitBtn1Click(Sender: TObject);
     procedure FindIDCard();
   private
-    CardNoTemp: string;
+    CardNoTemp, DataBaseNameTemp: string;
     procedure InitCardKey();
   public
     { Public declarations }
   end;
 //TODO密钥暂时放在这里
+
 const
   KeyB: string = '222222222222';
   KeyA: string = '111111111111';
 
-procedure MakeCard(IDCard, PatientID, PatientName, DataBaseName, PersonID: string);
+function MakeCard(IDCard, PatientID, PatientName, DataBaseName, PersonID: string): Boolean;
 
 implementation
-
 {$R *.dfm}
 //制卡(在显示界面前把数据存入卡中)
-procedure MakeCard(IDCard, PatientID, PatientName, DataBaseName, PersonID: string);
+
+function MakeCard(IDCard, PatientID, PatientName, DataBaseName, PersonID: string): Boolean;
 var
   MakeCardForm: TMakeCardForm;
 begin
@@ -50,6 +51,7 @@ begin
       UpDateQuery.DatabaseName := DataBaseName;
       JudgeQuery.DatabaseName := DataBaseName;
       LogQuery.DatabaseName := DataBaseName;
+      DataBaseNameTemp := DataBaseName;
       //先判断是否已有iC卡
       JudgeQuery.Close;
       JudgeQuery.ParamByName('PID').AsString := PersonID;
@@ -57,11 +59,13 @@ begin
       if JudgeQuery.FieldByName('CardNo').AsString <> '' then
       begin
         Application.MessageBox('当前患者已绑定IC卡', '已绑定IC卡', MB_OK + MB_ICONWARNING);
+        Result := False;
         Exit;
       end
       else if (JudgeQuery.FieldByName('DelFlag').AsBoolean = True) and (JudgeQuery.FieldByName('CardCode').AsString = CardNoTemp) then
       begin
         Application.MessageBox('此卡已作废,无法办卡', '制卡失败', MB_OK + MB_ICONWARNING);
+        Result := False;
         Exit;
       end;
       begin
@@ -92,6 +96,7 @@ begin
               MakeResultLabel.Caption := '写卡错,错误代码24'
           end;
           ShowModal;
+          Result := False;
           exit;
         end;
 
@@ -110,10 +115,9 @@ begin
         LogQuery.ParamByName('OperDate').AsDateTime := GetCurrentDate;
         LogQuery.ParamByName('OperFlag').AsInteger := 1;
         LogQuery.ExecSQL;
-        Application.MessageBox('制卡成功', '成功', MB_OK + MB_ICONINFORMATION);
+        Exit;
+        Result := True;
       end;
-
-      Exit;
     finally
       Free;
     end;

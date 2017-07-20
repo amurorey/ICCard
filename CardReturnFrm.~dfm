@@ -489,17 +489,16 @@ object CardReturnForm: TCardReturnForm
       ItemHeight = 15
       ParentCtl3D = False
       TabOrder = 0
-      Text = #29616#37329
       Items.Strings = (
         #29616#37329
         #38134#34892#21345)
-      ItemIndex = 0
     end
     object ConfirmBitBtn: TRzBitBtn
       Left = 528
       Top = 110
       Width = 137
       Height = 29
+      Default = True
       Caption = #30830#35748#36864#36153
       Enabled = False
       HotTrack = True

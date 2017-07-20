@@ -31,7 +31,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
     Font.Name = #23435#20307
     Font.Style = []
     ParentFont = False
-    BlinkIntervalOff = 1000
+    BlinkIntervalOff = 300
     BlinkIntervalOn = 1000
   end
   object Label1: TLabel
@@ -79,7 +79,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel2: TRzLabel
@@ -94,7 +94,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel4: TRzLabel
@@ -109,7 +109,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel5: TRzLabel
@@ -124,7 +124,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel6: TRzLabel
@@ -139,7 +139,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel7: TRzLabel
@@ -154,7 +154,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel8: TRzLabel
@@ -169,7 +169,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel9: TRzLabel
@@ -184,7 +184,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object PatientIDLabel: TRzLabel
@@ -199,7 +199,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = [fsBold]
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel3: TRzLabel
@@ -214,7 +214,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel10: TRzLabel
@@ -229,7 +229,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel11: TRzLabel
@@ -244,7 +244,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel12: TRzLabel
@@ -259,7 +259,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel13: TRzLabel
@@ -275,7 +275,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Style = []
       ParentFont = False
       WordWrap = True
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel14: TRzLabel
@@ -290,7 +290,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel15: TRzLabel
@@ -305,7 +305,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel16: TRzLabel
@@ -320,7 +320,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel18: TRzLabel
@@ -335,7 +335,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel19: TRzLabel
@@ -350,7 +350,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel20: TRzLabel
@@ -365,7 +365,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object AddressOfPersonIDLabel: TRzLabel
@@ -381,7 +381,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel21: TRzLabel
@@ -396,7 +396,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object NationTypeLabel: TRzLabel
@@ -411,7 +411,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object s: TRzSeparator
@@ -435,7 +435,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = [fsBold]
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
       TextStyle = tsRecessed
     end
@@ -451,7 +451,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object FP9DispLabel: TLabel
@@ -483,7 +483,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel22: TRzLabel
@@ -498,7 +498,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
       Font.Name = #23435#20307
       Font.Style = []
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object PatientNameEdit: TRzButtonEdit
