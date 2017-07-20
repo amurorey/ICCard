@@ -55,6 +55,7 @@ begin
       PatientIDTemp := PatientID;
       MoneyTemp := Money;
       NameTemp := FName;
+      TypeComboBox.ItemIndex := 0;
       ShowModal;
     finally
       Free;

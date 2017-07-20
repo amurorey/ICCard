@@ -158,6 +158,7 @@ begin
       MoneyRzEdit.SetFocus;
       MoneyRzEdit.SelectAll;
       NoteMemo.Enabled := True;
+      StyleComboBox.ItemIndex := 0;
     end
     else
     begin
