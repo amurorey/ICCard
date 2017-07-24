@@ -32,7 +32,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 61
       Height = 15
       Caption = #24739#32773'ID'#21495
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel4: TRzLabel
@@ -41,7 +41,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #24739#32773#22995#21517
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel5: TRzLabel
@@ -50,7 +50,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #36523#20221#35777#21495
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel6: TRzLabel
@@ -59,7 +59,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #21097#20313#37329#39069
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel7: TRzLabel
@@ -68,7 +68,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #30005#35805#21495#30721
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object CardIDLabel: TRzLabel
@@ -84,7 +84,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object PatientNameLabel: TRzLabel
@@ -100,7 +100,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object MoneyLabel: TRzLabel
@@ -116,7 +116,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object IDCardLabel: TRzLabel
@@ -132,7 +132,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object PhoneNumberRzLabel: TRzLabel
@@ -148,7 +148,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel14: TRzLabel
@@ -157,7 +157,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #23478#24237#20303#22336
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object AdressLabel: TRzLabel
@@ -173,7 +173,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel9: TRzLabel
@@ -182,7 +182,7 @@ object CardPrepareForm: TCardPrepareForm
       Width = 60
       Height = 15
       Caption = #35786#30103#21345#21495
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object ZLIDCardLabel: TRzLabel
@@ -198,7 +198,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Style = []
       ParentFont = False
       Visible = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object img1: TImage
@@ -220,7 +220,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Name = #23435#20307
       Font.Style = [fsBold]
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
   end
@@ -243,7 +243,7 @@ object CardPrepareForm: TCardPrepareForm
       Font.Name = #23435#20307
       Font.Style = [fsBold]
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object MoneyGrid: TRzStringGrid
@@ -533,7 +533,7 @@ object CardPrepareForm: TCardPrepareForm
       '        [Address] ,'
       '        PrepayMoney ,'
       '        CardNo'
-      'FROM    dbo.PatientBase'
+      'FROM    dbo.PatientBase(NOLOCK)'
       'WHERE   CardNo =:CardNo AND PatientID = :PatientID')
     Left = 192
     Top = 152
@@ -563,7 +563,7 @@ object CardPrepareForm: TCardPrepareForm
       '              OperDate ,'
       '              PayWay,'
       '              Flag'
-      'FROM    dbo.MZPrepay'
+      'FROM    dbo.MZPrepay(NOLOCK)'
       'WHERE  PatientID = :PatientID  ')
     Left = 288
     Top = 152

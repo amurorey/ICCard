@@ -2,7 +2,7 @@ object AddPatientBaseForm: TAddPatientBaseForm
   Left = 240
   Top = 52
   BorderStyle = bsDialog
-  Caption = 's'
+  Caption = #24739#32773#22522#26412#20449#24687
   ClientHeight = 617
   ClientWidth = 800
   Color = clBtnFace

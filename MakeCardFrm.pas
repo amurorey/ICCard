@@ -27,7 +27,7 @@ type
   public
     { Public declarations }
   end;
-//TODO密钥暂时放在这里
+//密钥暂时放在这里
 
 const
   KeyB: string = '222222222222';
@@ -106,7 +106,7 @@ begin
         UpDateQuery.ParamByName('PatientID').AsString := PatientID;
         UpDateQuery.ExecSQL;
 
-      //插入日志
+        //插入日志
         LogQuery.Close;
         LogQuery.ParamByName('PatientID').AsString := PatientID;
         LogQuery.ParamByName('CardCode').AsString := CardNoTemp;
@@ -115,8 +115,8 @@ begin
         LogQuery.ParamByName('OperDate').AsDateTime := GetCurrentDate;
         LogQuery.ParamByName('OperFlag').AsInteger := 1;
         LogQuery.ExecSQL;
-        Exit;
         Result := True;
+        Exit;
       end;
     finally
       Free;

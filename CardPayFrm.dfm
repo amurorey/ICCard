@@ -35,7 +35,7 @@ object CardPayForm: TCardPayForm
       Width = 80
       Height = 15
       Caption = #20805#20540#21345#21495#65306
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel2: TRzLabel
@@ -44,7 +44,7 @@ object CardPayForm: TCardPayForm
       Width = 80
       Height = 15
       Caption = #20805#20540#26041#24335#65306
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel3: TRzLabel
@@ -53,7 +53,7 @@ object CardPayForm: TCardPayForm
       Width = 80
       Height = 15
       Caption = #20805#20540#37329#39069#65306
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object CardNoLabel: TRzLabel
@@ -68,7 +68,7 @@ object CardPayForm: TCardPayForm
       Font.Name = #23435#20307
       Font.Style = [fsBold]
       ParentFont = False
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzLabel4: TRzLabel
@@ -77,7 +77,7 @@ object CardPayForm: TCardPayForm
       Width = 48
       Height = 15
       Caption = #22791#27880#65306
-      BlinkIntervalOff = 1000
+      BlinkIntervalOff = 300
       BlinkIntervalOn = 1000
     end
     object RzBitBtn1: TRzBitBtn
@@ -245,7 +245,6 @@ object CardPayForm: TCardPayForm
       Height = 113
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 4
-      OnKeyPress = MoneyEditKeyPress
       FrameHotTrack = True
       FrameVisible = True
     end

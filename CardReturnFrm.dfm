@@ -657,7 +657,7 @@ object CardReturnForm: TCardReturnForm
       '        Tel,'
       '        Sex,'
       '        PersonID'
-      'FROM    dbo.PatientBase'
+      'FROM    dbo.PatientBase(NOLOCK)'
       'WHERE   PatientID = :PatientID ')
     Left = 144
     Top = 40

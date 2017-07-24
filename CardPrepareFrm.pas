@@ -177,7 +177,7 @@ begin
 
   PatientBaseQuery.Close;
   PatientBaseQuery.Open;
-  MoneyLabel.Caption := PatientBaseQuery.FieldByName('PrepayMoney').AsString;
+  MoneyLabel.Caption := FormatFloat('0.00', PatientBaseQuery.FieldByName('PrepayMoney').AsFloat);
   MoneyTemp := PatientBaseQuery.FieldByName('PrepayMoney').AsFloat;
 end;
 
